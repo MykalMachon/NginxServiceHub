@@ -22,7 +22,7 @@ tbd
 - thepeoplescubicle.com
     - primary site 
         - [ ] create simple one page HTML site 
-        - [ ] host on Azure App Service 
+        - [ ] host on digital ocean droplet VM
         - [ ] Configure proxy site and DNS
     - thepeoplescubicle.com/opnforms
         - [ ] setup [opnforms](https://github.com/JhumanJ/OpnForm?tab=readme-ov-file)
