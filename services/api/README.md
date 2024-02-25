@@ -3,6 +3,7 @@
 ## Docker Commands
 
 This uses docker to build the image. Please use the commands below for reference and testing locally.
+The image is also published to GHCR.io
 
 ### Build command 
 
