@@ -32,8 +32,8 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
-          context: .
-          file: ./services/api/dockerfile
+          context: ./services/api/
+          file: dockerfile
           push: true
           tags: ghcr.io/${{ env.REPO_LOWERCASE }}-api:${{ github.sha }}, ghcr.io/${{ env.REPO_LOWERCASE }}-api:latest
           cache-from: type=gha
