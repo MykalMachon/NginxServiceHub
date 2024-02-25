@@ -10,9 +10,6 @@ jobs:
   build-and-publish:
     name: Build and publish API
     runs-on: ubuntu-latest
-    defaults:
-      run: 
-        working-directory: services/api/
     steps: 
       - name: checkout repo
         uses: actions/checkout@v4
@@ -35,7 +32,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
-          context: .
+          context: services/api/
           file: Dockerfile
           push: true
           tags: ghcr.io/${{ env.REPO_LOWERCASE }}-api:${{ github.sha }}, ghcr.io/${{ env.REPO_LOWERCASE }}-api:latest
