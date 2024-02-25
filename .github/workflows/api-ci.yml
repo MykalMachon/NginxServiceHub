@@ -1,0 +1,40 @@
+on: 
+  push:
+    branches: 
+      - main 
+    paths: 
+      'services/api/**/*'
+  
+jobs:
+  build-and-publish:
+    name: Build and publish API
+    runs-on: ubuntu-latest
+    steps: 
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: Set up QEMU for multi-platform support
+        uses: docker/setup-qemu-action@v1
+      - name: Set up docker Buildx
+        uses: docker/setup-qemu-action@v1
+
+      - name: Login to GitHub Container REgistry
+        uses: docker/login-action@v2
+        with: 
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+        
+      - name: Downcase repo name 
+        run: |
+          echo "REPO_LOWERCASE=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
+      
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./services/api/dockerfile
+          push: true
+          tags: ghcr.io/${{ env.REPO_LOWERCASE }}-api:${{ github.sha }}, ghcr.io/${{ env.REPO_LOWERCASE }}-api:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+  
