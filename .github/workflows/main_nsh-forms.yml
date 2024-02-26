@@ -7,11 +7,16 @@ on:
   push:
     branches:
       - main
+    paths:
+      './services/forms/**/*'
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults: 
+      run:
+        working-directory: ./services/forms/
 
     steps:
       - uses: actions/checkout@v4
@@ -42,7 +47,11 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./services/forms/
     needs: build
+    
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
