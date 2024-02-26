@@ -1,3 +1,5 @@
+name: Build API container
+
 on:
   workflow_dispatch:
   push:
