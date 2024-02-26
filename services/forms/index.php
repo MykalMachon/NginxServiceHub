@@ -59,7 +59,7 @@
         border: 1px solid var(--yellow-11);
         border-radius: var(--radius-2);
         /* if there are results in <p /> show the block */
-        &:has(p){
+        &:has(p.field){
           display: block;
         }
       }
@@ -97,9 +97,9 @@
           $email = $_POST["email"];
           $message = $_POST["message"];
           
-          echo "<p>Name: " . $name . "</p>";
-          echo "<p>Email: " . $email . "</p>";
-          echo "<p>Message: " . $message . "</p>";
+          echo "<p class="field">Name: " . $name . "</p>";
+          echo "<p class="field">Email: " . $email . "</p>";
+          echo "<p class="field">Message: " . $message . "</p>";
       }
     ?>
     </section>
