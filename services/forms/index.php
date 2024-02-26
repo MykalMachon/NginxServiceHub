@@ -73,7 +73,7 @@
   <main>
     <h1>Forms</h1>
     <p>This is a simple form website in PHP. It's hosted via Azure App Services</p>
-    <form method="POST" action="<?php echo $_SERVER["PHP_SELF"]; ?>">
+    <form method="POST">
         <div>
         <label for="name">Name:</label>
         <input type="text" name="name" id="name" required>
