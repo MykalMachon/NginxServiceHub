@@ -101,9 +101,9 @@
           $email = $_POST["email"];
           $message = $_POST["message"];
           
-          echo "<p class="field">Name: " . $name . "</p>";
-          echo "<p class="field">Email: " . $email . "</p>";
-          echo "<p class="field">Message: " . $message . "</p>";
+          echo "<p class='field'>Name: " . $name . "</p>";
+          echo "<p class='field'>Email: " . $email . "</p>";
+          echo "<p class='field'>Message: " . $message . "</p>";
       }
     ?>
     </section>
