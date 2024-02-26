@@ -12,6 +12,10 @@
         place-items: center;
       }
 
+      body {
+        padding: var(--size-1) var(--size-2);
+      }
+
       main {
         max-width: 80ch;
         width: 100%;
